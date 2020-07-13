@@ -5,8 +5,8 @@
     <link rel="icon" type="image/ico" href="/images/25.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <script src="script/scr.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="script/scr.js"></script>
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <title>Calculator</title>
 </head>
@@ -16,37 +16,37 @@
         <div class="calculator">
             <table>
                 <tr>
-                    <td colspan="4"><input class="result" type="text"></td>
+                    <td colspan="4"><input class="result" readonly type = "text"></td>
                 </tr>
                 <tr id="1">
-                    <td><button name="clear" class="functional" id="c">C</button></td>
-                    <td><button name="brackets" class="functional" id="brackets">()</button></td>
-                    <td><button name="percent" class="functional" id="percent">%</button></td>
-                    <td><button name="div" class="functional" id="div">\</button></td>
+                    <td><button name="C" class="functional" id="c">C</button></td>
+                    <td><button name="()" class="functional" id="brackets">()</button></td>
+                    <td><button name="%" class="functional" id="percent">%</button></td>
+                    <td><button name="\" class="functional" id="div">\</button></td>
                 </tr>
                 <tr id="2">
-                    <td><button name="1" class="num">1</button></td>
-                    <td><button name="2" class="num">2</button></td>
-                    <td><button name="3" class="num">3</button></td>
-                    <td><button name="mul" class="functional" id="mul">*</button></td>
+                    <td><button value="1" class="num" name="1">1</button></td>
+                    <td><button value="2" class="num" name="2">2</button></td>
+                    <td><button value="3" class="num" name="3">3</button></td>
+                    <td><button name="*" class="functional" id="mul">*</button></td>
                 </tr>
                 <tr id="3">
-                    <td><button name="4" class="num">4</button></td>
-                    <td><button name="5" class="num">5</button></td>
-                    <td><button name="6" class="num">6</button></td>
+                    <td><button value="4" class="num" name="4">4</button></td>
+                    <td><button value="5" class="num" name="5">5</button></td>
+                    <td><button value="6" class="num" name="6">6</button></td>
                     <td><button name="+" class="functional" id="sum">+</button></td>
                 </tr>
                 <tr id="4">
-                    <td><button name="7" class="num">7</button></td>
-                    <td><button name="8" class="num">8</button></td>
-                    <td><button name="9" class="num">9</button></td>
+                    <td><button value="7" class="num" name="7">7</button></td>
+                    <td><button value="8" class="num" name="8">8</button></td>
+                    <td><button value="9" class="num" name="9">9</button></td>
                     <td><button name="-" class="functional" id="minus">-</button></td>
                 </tr>
                 <tr id="5">
-                    <td><button name="sign" class="functional" id="sign">+/-</button></td>
-                    <td><button name="0" class="num">0</button></td>
+                    <td><button class="backspace">&#8701</button></td>
+                    <td><button value="0" class="num" name="0">0</button></td>
                     <td><button name="." class="functional" id="decdot">.</button></td>
-                    <td><button name="=" class="functional" id="result">=</button></td>
+                    <td><button name="=" class="result">=</button></td>
                 </tr>
             </table>
         </div>

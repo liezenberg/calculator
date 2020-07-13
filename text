@@ -1,0 +1,21 @@
+
+$('button.num').on('click', function(){  
+         inputstr+=$(this).val();
+      if (firstnumber===undefined) {
+         firstnumber = parseInt(inputstr);
+         $('input').val(inputstr);
+       }else if (secondnumber === undefined) {
+        secondnumber =parseInt(inputstr);
+        inputstr+=$(this).val();
+       }
+       
+       console.log(firstnumber,secondnumber);
+    });
+     //button click
+   
+     //$('input').val($(this).attr('name'));
+
+     $('button.functional').on('click', function(){
+         $('input').val($(this).attr('name'));
+         inputstr="";
+     });
