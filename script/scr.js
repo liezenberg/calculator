@@ -24,8 +24,13 @@ $(document).ready( function(){
         });
       
       $('button.result').on('click', function(){
-         var result = eval(inputstr);
-         $('input').val(result);
+
+         try {
+            var result = eval(inputstr);
+            $('input').val(result);
+         } catch (error) {
+            alert("Error!")
+         }
          inputstr="";
       });
     
