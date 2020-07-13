@@ -10,10 +10,13 @@ $(document).ready( function(){
         $('input').val(inputstr);
      });
 
-     $('button#c').on('click',function(){
+     function clear(){
       $('input').val("");
-        inputstr="";
-     });
+      inputstr="";
+     }
+
+     $('button#c').on('click', clear);
+     
       
       $('button#backspace').on('click',function(){
          var temp = inputstr.substring(0, inputstr.length - 1);
@@ -23,6 +26,7 @@ $(document).ready( function(){
       $('button.result').on('click', function(){
          var result = eval(inputstr);
          $('input').val(result);
+         inputstr="";
       });
     
 });
