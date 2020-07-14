@@ -23,7 +23,11 @@ div.calculator {
     padding: 0.4rem;
 }
 
-button {
+div.calculator td {
+    padding: 0;
+}
+
+div.calculator td button {
     font-size: 1rem;
     width: 3rem;
     height: 2rem;
@@ -34,15 +38,11 @@ button {
     vertical-align: text-bottom;
 }
 
-td {
-    padding: 0;
-}
-
-td button.functional {
+div.calculator td button.functional {
     color: darkred;
 }
 
-td input.result {
+div.calculator td input.result {
     box-sizing: border-box; /* инпут больше не вылазит за пределы контейнера (или делает вид) */
     font-size: 1rem;
     width: 100%;

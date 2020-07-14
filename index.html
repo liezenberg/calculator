@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link rel="icon" type="image/ico" href="/images/25.ico">
@@ -16,37 +16,39 @@
         <div class="calculator">
             <table>
                 <tr>
-                    <td colspan="4"><input class="result" readonly type = "text"></td>
+                    <td colspan="4">
+                        <input class="result" type="text" readonly aria-label="Result">
+                    </td>
                 </tr>
                 <tr id="1">
-                    <td><button class="clear" id="c">C</button></td>
-                    <td><button name="()" class="functional" id="brackets">()</button></td>
-                    <td><button name="%" class="functional" id="percent">%</button></td>
-                    <td><button name="/" class="functional" id="div">/</button></td>
+                    <td><button id="c" class="">C</button></td>
+                    <td><button class="functional" data-value="()">()</button></td>
+                    <td><button class="functional" data-value="%">%</button></td>
+                    <td><button class="functional" data-value="/">/</button></td>
                 </tr>
                 <tr id="2">
-                    <td><button value="1" class="num" name="1">1</button></td>
-                    <td><button value="2" class="num" name="2">2</button></td>
-                    <td><button value="3" class="num" name="3">3</button></td>
-                    <td><button name="*" class="functional" id="mul">*</button></td>
+                    <td><button class="num" data-value="1">1</button></td>
+                    <td><button class="num" data-value="2">2</button></td>
+                    <td><button class="num" data-value="3">3</button></td>
+                    <td><button class="functional" data-value="*">*</button></td>
                 </tr>
                 <tr id="3">
-                    <td><button value="4" class="num" name="4">4</button></td>
-                    <td><button value="5" class="num" name="5">5</button></td>
-                    <td><button value="6" class="num" name="6">6</button></td>
-                    <td><button name="+" class="functional" id="sum">+</button></td>
+                    <td><button class="num" data-value="4">4</button></td>
+                    <td><button class="num" data-value="5">5</button></td>
+                    <td><button class="num" data-value="6">6</button></td>
+                    <td><button class="functional" data-value="+">+</button></td>
                 </tr>
                 <tr id="4">
-                    <td><button value="7" class="num" name="7">7</button></td>
-                    <td><button value="8" class="num" name="8">8</button></td>
-                    <td><button value="9" class="num" name="9">9</button></td>
-                    <td><button name="-" class="functional" id="minus">-</button></td>
+                    <td><button class="num" data-value="7">7</button></td>
+                    <td><button class="num" data-value="8">8</button></td>
+                    <td><button class="num" data-value="9">9</button></td>
+                    <td><button class="functional" data-value="-">-</button></td>
                 </tr>
                 <tr id="5">
-                    <td><button class="backspace">&#8701</button></td>
-                    <td><button value="0" class="num" name="0">0</button></td>
-                    <td><button name="." class="functional" id="decdot">.</button></td>
-                    <td><button name="=" class="result">=</button></td>
+                    <td><button id="backspace" class="">&#8701</button></td>
+                    <td><button class="num" data-value="0">0</button></td>
+                    <td><button class="functional" data-value=".">.</button></td>
+                    <td><button id="equals" class="">=</button></td>
                 </tr>
             </table>
         </div>
