@@ -1,16 +1,18 @@
 "use strict";
 $(document).ready(function () {
     //#region DOM elements
-    const $input = $(".calculator input");
+    const $root = $(".calculator");
 
-    const $functional = $(".calculator button.functional");
+    const $input = $root.find("input");
 
-    const $nums = $(".calculator button.num");
+    const $functional = $root.find("button.functional");
 
-    const $c = $(".calculator button#c");
-    const $backspace = $(".calculator button#backspace");
-    const $minus = $(".calculator button#minus");
-    const $equals = $(".calculator button#equals");
+    const $nums = $root.find("button.num");
+
+    const $c = $root.find("button#c");
+    const $backspace = $root.find("button#backspace");
+    const $minus = $root.find("button#minus");
+    const $equals = $root.find("button#equals");
     //#endregion DOM elements
 
     const testRegex = /[0-9]/;
