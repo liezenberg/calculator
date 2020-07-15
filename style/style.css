@@ -51,3 +51,42 @@ div.calculator td input.result {
     background-color: darkolivegreen;
     font-style: oblique;
 }
+
+div.button-wprapper {
+    margin-bottom: 0.3rem;
+    display: flex;
+    
+    justify-content: flex-end;
+    
+}
+
+div.button-wprapper button#history{
+    width: 3rem;
+    height: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.45rem;
+}
+
+div.history{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 12.5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 0.3rem;
+    overflow-y: auto;
+    max-height: 10rem;
+    max-width: 10rem;
+}
+
+ul.history-list{
+    list-style-type:none;
+    text-align: end;
+    font-size: 1rem;
+    font-weight: bold;
+}
+ul.history-list li{ 
+    margin: 0.3rem 0.5rem;
+}

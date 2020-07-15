@@ -2,22 +2,27 @@
 $(document).ready(function () {
     //#region DOM elements
     const $root = $(".calculator");
+    
+    
 
     const $input = $root.find("input");
 
     const $functional = $root.find("button.functional");
 
     const $nums = $root.find("button.num");
-
+    const $hstrbutton = $root.find('button#history');
     const $c = $root.find("button#c");
     const $backspace = $root.find("button#backspace");
     const $minus = $root.find("button#minus");
+    const $historyblock = $root.find('.history');
     const $equals = $root.find("button#equals");
+    const $historylist=$root.find('.history-list');
+    
     //#endregion DOM elements
 
     const testRegex = /[0-9]/;
-    const operatorsRegex = /[^-][^0-9]$/ //если в строке после чисел есть знак выключаем функциональные клавиши
-
+    const historyregexp=/^[0-9]+$/;
+    const operatorsRegex = /[^-][^0-9]$/; //если в строке после чисел есть знак выключаем функциональные клавиши
     // At first - add all the needed event listeners
     //#region EventListeners
     $functional.add($nums).on("click", function () {
@@ -27,10 +32,11 @@ $(document).ready(function () {
 
     $input.on("change paste keyup", function () {
         const val = $(this).val();
-
+        
         //Если не пустая включам функциональные клавиши
         if (!isEmpty(val) && operatorsRegex.test(val)) {
             disableControls($functional);
+        //реагирует на любое изменение поетому результат тоже заноситься 
         } else if (testRegex.test(val)) {
             enableControls($functional);
         }
@@ -51,11 +57,17 @@ $(document).ready(function () {
     $equals.on("click", function () {
         try {
             const curr = $input.val();
+            const expesion=$input.val();
             const result = eval(curr).toString();
             setValue(result);
+            historyresult(expesion,result);
         } catch (error) {
             setValue("Error!");
         }
+    });
+    //show history-block 
+    $hstrbutton.on('click',function(){
+       $historyblock.slideToggle('1000');
     });
     //#endregion EventListeners
 
@@ -72,6 +84,7 @@ $(document).ready(function () {
     //#region Utils functions
     function setValue(string) {
         $input.val(string).change();
+        
     }
 
     function clear() {
@@ -98,6 +111,11 @@ $(document).ready(function () {
     function enableControls(...controls) {
         controls.map($el => $el.removeClass("disabled").prop("disabled", false));
     }
-
+    //adds new elemet to list
+        function historyresult(expresion,result){
+            if (!historyregexp.test(expresion)) {
+                $historylist.prepend('<li>'+expresion+'='+result+'</li>');
+            }
+        }
     //#endregion Utils functions
 });
