@@ -16,7 +16,7 @@ $(document).ready(function () {
     const $minus = $root.find("button#minus");
     const $historyblock = $root.find('.history');
     const $equals = $root.find("button#equals");
-    const $historylist=$root.find('.history-list');
+    const $historylist=$root.find('#historyHeader');
     
     //#endregion DOM elements
 
@@ -54,6 +54,7 @@ $(document).ready(function () {
         setValue(newVal);
     });
 
+    
     $equals.on("click", function () {
         try {
             const curr = $input.val();
@@ -68,6 +69,11 @@ $(document).ready(function () {
     //show history-block 
     $hstrbutton.on('click',function(){
        $historyblock.slideToggle('1000');
+    });
+    
+    $historylist.on("click",'button.buttHis',function(){
+        const localval=$(this).data('value');
+        setValue(localval);
     });
     //#endregion EventListeners
 
@@ -113,8 +119,10 @@ $(document).ready(function () {
     }
     //adds new elemet to list
         function historyresult(expresion,result){
+            const buttonstr = '<button type="button" data-value="'+result+'" class="buttHis list-group-item list-group-item-action">';
             if (!historyregexp.test(expresion)) {
-                $historylist.prepend('<li>'+expresion+'='+result+'</li>');
+                $historylist.after(buttonstr + expresion+'='+result+'</button>');
+                console.log('after');
             }
         }
     //#endregion Utils functions

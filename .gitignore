@@ -1,0 +1,4 @@
+#ignoting temp.txt
+temp.txt
+#ignoring node_modules
+node_modules/**
