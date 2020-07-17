@@ -71,7 +71,7 @@ $(document).ready(function () {
        $historyblock.slideToggle('1000');
     });
     
-    $historylist.on("click",'button.buttHis',function(){
+    $historyblock.on("click",'button.buttHis',function(){
         const localval=$(this).data('value');
         setValue(localval);
     });
