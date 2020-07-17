@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/liezenberg/calculator#readme",
   "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-plugin-spellcheck": "0.0.17",
     "jquery": "^3.5.1"
   },
   "dependencies": {
