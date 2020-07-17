@@ -1,5 +1,5 @@
 "use strict"
-$.fn.calculator = function () {
+$.fn.calculator = function (historyObj) {
     //insert html calculator
     const $htmltext = `<div class="button-wprapper">
             <button id="history">
@@ -73,7 +73,6 @@ $.fn.calculator = function () {
     const $historylist = $root.find('#historyHeader');
 
     //#endregion DOM elements
-    let ikey=0;
     const testRegex = /[0-9]/;
     const historyregexp = /^[0-9]+$/;
     const operatorsRegex = /[^-][^0-9]$/; //если в строке после чисел есть знак выключаем функциональные клавиши
@@ -189,10 +188,12 @@ $.fn.calculator = function () {
         if (!historyregexp.test(expresion)) {
             const buttonKey = buttonstr + expresion + '=' + result + '</button>';
             $historylist.after(`${buttonstr + expresion}=${result}</button>`);
-            localStorage.setItem(ikey,buttonKey);
+            if (historyObj !==undefined) {
+                historyObj.historyId +=1;
+                localStorage.setItem(historyObj.historyId,buttonKey);
+            }
         }
-        ikey+=1;
-        console.log(ikey);
+        console.log(historyObj.historyId);
     }
 
     //#endregion Utils functions
