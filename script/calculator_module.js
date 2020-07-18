@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 $.fn.calculator = function (historyObj) {
     //insert html calculator
     const $htmltext = `<div class="button-wprapper">
@@ -53,7 +53,7 @@ $.fn.calculator = function (historyObj) {
                 <td><button id="equals" class="">=</button></td>
             </tr>
         </table>`;
-    $(this).addClass('calculator').html($htmltext);
+    $(this).addClass("calculator").html($htmltext);
 
     //#region DOM elements
     const $root = $(this);
@@ -64,13 +64,13 @@ $.fn.calculator = function (historyObj) {
     const $functional = $root.find("button.functional");
 
     const $nums = $root.find("button.num");
-    const $hstrbutton = $root.find('button#history');
+    const $hstrbutton = $root.find("button#history");
     const $c = $root.find("button#c");
     const $backspace = $root.find("button#backspace");
     const $minus = $root.find("button#minus");
-    const $historyblock = $root.find('.history');
+    const $historyblock = $root.find(".history");
     const $equals = $root.find("button#equals");
-    const $historylist = $root.find('#historyHeader');
+    const $historylist = $root.find("#historyHeader");
 
     //#endregion DOM elements
     const testRegex = /[0-9]/;
@@ -106,7 +106,7 @@ $.fn.calculator = function (historyObj) {
         if (isEmpty(val)) {
             disableControls($functional.not($minus).not($c));
         }
-    })
+    });
 
     $c.on("click", clear);
 
@@ -129,13 +129,13 @@ $.fn.calculator = function (historyObj) {
         }
     });
     //show history-block
-    $hstrbutton.on('click', function () {
-        $historyblock.slideToggle('1000');
+    $hstrbutton.on("click", function () {
+        $historyblock.slideToggle("1000");
         
     });
 
-    $historyblock.on("click", 'button.buttHis', function () {
-        const localval = $(this).data('value');
+    $historyblock.on("click", "button.buttHis", function () {
+        const localval = $(this).data("value");
         setValue(localval);
     });
     //#endregion EventListeners
@@ -184,9 +184,9 @@ $.fn.calculator = function (historyObj) {
     //adds new elemet to list
     function historyresult(expresion, result) {
         
-        const buttonstr = '<button type="button" data-expresion="'+expresion+'" data-value="' + result + '" class="buttHis list-group-item list-group-item-action">';
+        const buttonstr = "<button type=\"button\" data-expresion=\""+expresion+"\" data-value=\"" + result + "\" class=\"buttHis list-group-item list-group-item-action\">";
         if (!historyregexp.test(expresion)) {
-            const buttonKey = buttonstr + expresion + '=' + result + '</button>';
+            const buttonKey = buttonstr + expresion + "=" + result + "</button>";
             $historylist.after(`${buttonstr + expresion}=${result}</button>`);
             if (historyObj !==undefined) {
                 historyObj.historyId +=1;

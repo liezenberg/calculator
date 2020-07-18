@@ -18,10 +18,10 @@
   "homepage": "https://github.com/liezenberg/calculator#readme",
   "devDependencies": {
     "eslint": "^7.4.0",
-    "eslint-plugin-spellcheck": "0.0.17",
-    "jquery": "^3.5.1"
+    "eslint-plugin-spellcheck": "0.0.17"
   },
   "dependencies": {
+    "jquery": "^3.5.1",
     "bootstrap": "^4.5.0"
   }
 }
