@@ -2,7 +2,7 @@
 import "./calculator_module.js";
 $(document).ready(function () {
     let historyObject={historyId : 0};
-    const $calculatorСontainer = $(".calc1");
-    $calculatorСontainer.calculator(historyObject);
+    const $calculatorContainer = $(".calc1");
+    $calculatorContainer.calculator(historyObject);
     $(".calc2").calculator(historyObject);
 });
