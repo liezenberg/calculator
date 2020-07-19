@@ -78,9 +78,8 @@ $.fn.calculator = function (historyObj) {
     const operatorsRegex = /[^-][^0-9]$/; //если в строке после чисел есть знак выключаем функциональные клавиши
     // At first - add all the needed event listeners
     function loadingHistory(){
-        for (let key = 0; key < localStorage.length; key++) {
-            $historyList.after(localStorage.getItem(key));
-        }
+        const current = getHistoryArray();
+        $historyList.after(current);
     }
     (function () {
         loadingHistory();
@@ -155,6 +154,11 @@ $.fn.calculator = function (historyObj) {
         $input.val(string).change();
 
     }
+    
+    function getHistoryArray(){
+        let historyArray = localStorage.getItem(historyObj.historyId) ? JSON.parse(localStorage.getItem(historyObj.historyId)) : [];
+        return historyArray;
+    }
 
     function clear() {
         setValue("");
@@ -182,19 +186,19 @@ $.fn.calculator = function (historyObj) {
     }
 
     //adds new elemet to list
+    
     function historyResult(expression, result) {
         
         const buttonStr = "<button type=\"button\" data-expresion=\""+expression+"\" data-value=\"" + result + "\" class=\"buttHis list-group-item list-group-item-action\">";
         if (!historyRegexp.test(expression)) {
-            const buttonKey = buttonStr + expression + "=" + result + "</button>";
-            $historyList.after(`${buttonStr + expression}=${result}</button>`);
-            if (historyObj !==undefined) {
-                historyObj.historyId +=1;
-                localStorage.setItem(historyObj.historyId,buttonKey);
-            }
+            const current = getHistoryArray();
+            const buttonKey = `${buttonStr + expression}=${result}</button>`;
+            $historyList.after(buttonKey);
+            current.unshift(buttonKey);
+            localStorage.setItem(historyObj.historyId,JSON.stringify(current));
         }
-        console.log(historyObj.historyId);
+        
     }
-
+    
     //#endregion Utils functions
 };
